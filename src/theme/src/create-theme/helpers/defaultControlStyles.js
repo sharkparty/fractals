@@ -1,4 +1,4 @@
-import linearGradient from '../utils/linearGradient'
+import linearGradient from '../utils/linearGradient';
 
 export default function createDefaultControlStyles({ scales, controlStyle }) {
   if (controlStyle === 'flat') {

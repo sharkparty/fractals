@@ -5,10 +5,10 @@ import createColorScales from './utils/createColorScales'
 import linearGradient from './utils/linearGradient'
 
 export default function createStyles(config = {}) {
-  const scales = createColorScales(config.palette, defaultThemeConfig.palette)
-  const controlStyle = config.controlStyle || defaultThemeConfig.controlStyle
+  const scales = createColorScales(config.palette, defaultThemeConfig.palette);
+  const controlStyle = config.controlStyle || defaultThemeConfig.controlStyle;
 
-  const palette = {}
+  const palette = {};
   for (const key in scales) {
     if (Object.prototype.hasOwnProperty.call(scales, key)) {
       palette[key] = {

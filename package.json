@@ -1,6 +1,6 @@
 {
   "name": "@jaws/fractals",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "A React UI Library by RetailMeNot",
   "author": "Kameron (@sharkparty)",
   "license": "UNLICENSED",
@@ -78,7 +78,6 @@
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "@blueprintjs/icons": "^3.2.0",
-    "flexboxgrid2": "^7.2.1",
     "glamor": "^2.20.40",
     "prop-types": "^15.6.2",
     "tinycolor2": "^1.4.1",

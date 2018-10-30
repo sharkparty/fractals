@@ -1,21 +1,11 @@
 // REACT
 import React from 'react';
 // COMPONENTS
-import { Row, Pane, Col, Grid } from '../../../src/layout';
+import { Pane } from '../../../src/layout';
 import { Text } from '../../../src/typography';
 
 const IndexPage = () => (
   <div>
-    <Grid fluid>
-      <Row>
-        <Col xs={12} md={6}>
-          <Text>MD3 XS6</Text>
-        </Col>
-        <Col xs={12} md={6}>
-          <Text>MD3 XS6</Text>
-        </Col>
-      </Row>
-    </Grid>
     <Pane clearfix>
       <Pane
         elevation={0}
