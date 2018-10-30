@@ -1,8 +1,7 @@
 {
   "name": "@jaws/fractals",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React UI Library by RetailMeNot",
-  "main": "index.js",
   "author": "Kameron (@sharkparty)",
   "license": "UNLICENSED",
   "directories": {
@@ -21,6 +20,8 @@
     "commonjs",
     "esm"
   ],
+  "main": "commonjs/index.js",
+  "module": "esm/index.js",
   "keywords": [
     "RetailMeNot",
     "UI",
