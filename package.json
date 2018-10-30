@@ -1,0 +1,94 @@
+{
+  "name": "@jaws/fractals",
+  "version": "0.0.1",
+  "description": "A React UI Library by RetailMeNot",
+  "main": "index.js",
+  "author": "Kameron (@sharkparty)",
+  "license": "UNLICENSED",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build-storybook": "build-storybook -s .storybook/static -o .out",
+    "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --ignore '**/stories','**/test' --source-maps inline",
+    "build-esm": "BABEL_ENV=esm babel src --out-dir esm --ignore '**/stories','**/test' --source-maps inline",
+    "build": "concurrently --names 'commonjs,esm' 'yarn run build-commonjs' 'yarn run build-esm'",
+    "test": "jest --config=jest.config.js --coverage",
+    "test:dev": "jest --watch"
+  },
+  "repository": "sharkparty/fractals.git",
+  "files": [
+    "commonjs",
+    "esm"
+  ],
+  "keywords": [
+    "RetailMeNot",
+    "UI",
+    "React",
+    "Javascript",
+    "ESNext",
+    "Gatsby"
+  ],
+  "bugs": {
+    "url": "https://github.com/sharkparty/fractals/issues"
+  },
+  "homepage": "https://github.com/sharkparty/fractals#readme",
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@reactions/component": "^2.0.2",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-links": "^3.4.11",
+    "@storybook/addon-options": "^3.4.11",
+    "@storybook/addons": "^3.4.11",
+    "@storybook/react": "^3.4.11",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-add-react-displayname": "^0.0.5",
+    "concurrently": "^4.0.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-xo-react": "^0.17.0",
+    "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
+    "fs-extra": "^7.0.0",
+    "husky": "^1.1.2",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
+    "react": "^16.6.0",
+    "react-chromatic": "^0.8.4",
+    "react-dom": "^16.6.0",
+    "react-test-renderer": "^16.6.0",
+    "url-loader": "^1.1.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "@blueprintjs/icons": "^3.2.0",
+    "flexboxgrid2": "^7.2.1",
+    "glamor": "^2.20.40",
+    "prop-types": "^15.6.2",
+    "tinycolor2": "^1.4.1",
+    "ui-box": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "sideEffects": false
+}
