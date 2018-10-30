@@ -1,6 +1,6 @@
 {
   "name": "@jaws/fractals",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A React UI Library by RetailMeNot",
   "author": "Kameron (@sharkparty)",
   "license": "UNLICENSED",
@@ -8,6 +8,7 @@
     "doc": "docs"
   },
   "scripts": {
+    "prepublish": "yarn build",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --ignore '**/stories','**/test' --source-maps inline",
     "build-esm": "BABEL_ENV=esm babel src --out-dir esm --ignore '**/stories','**/test' --source-maps inline",
