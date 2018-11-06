@@ -14,8 +14,10 @@ node_modules
 # Folders
 .cache
 .secrets
+/ts
 /esm
 /commonjs
 /coverage
 /.out
 /docs/public
+/.cache
