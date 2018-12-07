@@ -14,13 +14,13 @@ export const Button = styled.button`
 `;
 
 interface ButtonProps {
-    borders?: boolean;
-    className?: string;
-    children?: any;
+  borders?: boolean;
+  className?: string;
+  children?: any;
 }
 
 const StyledButton = ({ children }: ButtonProps): React.ReactElement<any> => (
-    <Button>{children}</Button>
+  <Button>{children}</Button>
 );
 
 export default StyledButton;

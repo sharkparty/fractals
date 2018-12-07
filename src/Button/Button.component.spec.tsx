@@ -2,7 +2,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 // COMPONENT
-import Button, { Button as Styles } from './button.component';
+import Button, { Button as Styles } from './Button.component';
 // ENZYME
 import { shallow, mount } from 'enzyme';
 
