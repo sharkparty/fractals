@@ -10,9 +10,9 @@ import { version } from '../../../package.json';
 
 export const StyledHeaderElement = styled.header`
   padding: ${sizes.padding.sm} ${sizes.padding.md};
-  background-color: ${colors.primary.base};
+  background-color: ${colors.main.grapePurchase.base};
   margin: 0;
-  color: white;
+  color: ${colors.neutrals.white.base};
 `;
 
 interface HeaderProps {

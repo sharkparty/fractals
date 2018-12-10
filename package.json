@@ -43,7 +43,8 @@
   "license": "UNLICENSED",
   "peerDependencies": {
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "styled-components": ">= 3"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -106,8 +107,7 @@
     "lodash": "^4.17.11",
     "polished": "^2.3.1",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "styled-components": "^4.0.3"
+    "react-dom": "^16.6.0"
   },
   "engines": {
     "node": ">=8"

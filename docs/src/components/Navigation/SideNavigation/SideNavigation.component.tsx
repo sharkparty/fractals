@@ -3,44 +3,59 @@ import * as React from 'react';
 // VENDOR
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { rgba } from 'polished';
 // THEME
-import { colors } from '../../../../../src/theme';
+import { colors, fonts, sizes } from '../../../../../src/theme';
 
 export const StyledSideNavigationElement = styled.nav`
-  width: 300px;
-  background-color: ${colors.background.base};
+  min-width: 299px;
+  max-width: 299px;
+  background-color: ${colors.neutrals.silver.base};
+  border-right: solid 1px ${colors.neutrals.silver.dark};
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  // ul {
-  //   display: flex;
-  //   justify-content: flex-end;
-  //   list-style: none;
-  //   padding: 0;
-  //   margin: 0;
-  //
-  //   li {
-  //     flex: 1;
-  //     margin: 0;
-  //     padding: 0;
-  //     max-width: 11rem;
-  //
-  //     a {
-  //       display: block;
-  //       padding: 1.5rem 0 0;
-  //       text-decoration: none;
-  //       text-align: center;
-  //       cursor: pointer;
-  //       height: 2.4rem;
-  //       border-bottom: solid transparent 2px;
-  //       transition: border-bottom-color 250ms, background-color 250ms;
-  //
-  //       &:hover {
-  //         border-bottom-color: ${colors.border.white};
-  //         background-color: ${rgba(colors.border.white, .1)};
-  //       }
-  //     }
-  //   }
-  // }
+  > ul {
+    > li {
+    border-bottom: solid thin ${colors.neutrals.silver.dark};
+      > a {
+        font-weight: 500;
+      }
+    }
+
+   ul li a {
+    padding-left: ${sizes.padding.sm};
+   }
+
+   &:last-of-type {
+     padding-bottom: ${sizes.padding.xl};
+   }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      flex: 1;
+
+      a {
+        display: block;
+        padding: ${sizes.padding.xs};
+        cursor: pointer;
+
+        font-size: ${fonts.paragraph.informational.fontSize};
+
+        transition: background-color 250ms;
+
+        :hover {
+          background-color: ${colors.neutrals.silver.dark};
+        }
+      }
+    }
+  }
 `;
 
 interface SideNavigationProps {
@@ -52,13 +67,26 @@ export const SideNavigation = ({ children, className }: SideNavigationProps): Re
   <StyledSideNavigationElement className={classNames(className)}>
     <ul>
       <li>
-        <a>Docs</a>
+        <a>Support</a>
       </li>
       <li>
-        <a>Getting Started</a>
+        <a>Utilities</a>
+        <ul>
+          <li>
+            <a>Theme</a>
+          </li>
+        </ul>
       </li>
       <li>
-        <a>Designer Resources</a>
+        <a>Components</a>
+        <ul>
+          <li>
+            <a>Button</a>
+          </li>
+          <li>
+            <a>Layout</a>
+          </li>
+        </ul>
       </li>
     </ul>
   </StyledSideNavigationElement>

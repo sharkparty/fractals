@@ -27,7 +27,7 @@ export const StyledPageElement = styled.section`
 
 export const StyledBodyElement = styled.section`
   flex: 1 0 auto;
-  background-color: ${colors.background.base};
+  background-color: ${colors.neutrals.silver.base};
   max-width: 100vw;
   align-self: stretch;
   padding: ${sizes.padding.sm} ${sizes.padding.md};

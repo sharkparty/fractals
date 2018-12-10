@@ -9,8 +9,8 @@ import { colors } from '../../../../../src/theme';
 import { NavigationBar } from '../../Navigation';
 
 export const StyledHeaderElement = styled.header`
-  background-color: ${colors.primary.base};
-  color: ${colors.text.white};
+  background-color: ${colors.main.grapePurchase.base};
+  color: white;
   display: flex;
   padding: 0;
   margin: 0;

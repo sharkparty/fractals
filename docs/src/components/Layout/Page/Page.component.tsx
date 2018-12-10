@@ -7,17 +7,16 @@ import classNames from 'classnames';
 import { NormalizeCSS, GlobalCSS } from '../../../../../src/theme';
 import { Header, Footer } from '../';
 import { SideNavigation } from '../../Navigation';
-export const StyledPageElement = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
 
-  header,
-  footer {
-    flex: 0 0 auto;
-  }
-  > section {
-    flex: 1 1 auto;
+export const StyledPageElement = styled.div`
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  header {
+    width: 100%;
+    position: sticky;
+    top: 0;
   }
 `;
 
@@ -26,17 +25,10 @@ interface PageProps {
   children?: any;
 }
 
-const StyledContentBody = styled.section`
+const StyledContentBody = styled.div`
   display: flex;
-
-  > aside,
-  > nav {
-  flex: 1
-  }
-
-  > nav {
-    max-width: 300px;
-  }
+  height: calc(100vh - 4rem);
+  overflow: hidden;
 `;
 
 export const Page = ({ children, className }: PageProps): React.ReactElement<any> => (
@@ -46,10 +38,10 @@ export const Page = ({ children, className }: PageProps): React.ReactElement<any
     <Header/>
     <StyledContentBody>
       <SideNavigation />
-      <aside>
+      <main>
         {children}
-      </aside>
+        <Footer />
+      </main>
     </StyledContentBody>
-    <Footer />
   </StyledPageElement>
 );

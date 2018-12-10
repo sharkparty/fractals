@@ -3,7 +3,6 @@ import * as React from 'react';
 // VENDOR
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { rgba } from 'polished';
 // THEME
 import { colors } from '../../../../../src/theme';
 
@@ -19,7 +18,7 @@ export const StyledNavigationBarElement = styled.nav`
       flex: 1;
       margin: 0;
       padding: 0;
-      max-width: 11rem;
+      max-width: 9rem;
 
       a {
         display: block;
@@ -32,8 +31,8 @@ export const StyledNavigationBarElement = styled.nav`
         transition: border-bottom-color 250ms, background-color 250ms;
 
         &:hover {
-          border-bottom-color: ${colors.border.white};
-          background-color: ${rgba(colors.border.white, .1)};
+          border-bottom-color: ${colors.neutrals.silver.dark};
+          background-color: ${colors.neutrals.silver.base};
         }
       }
     }
@@ -52,10 +51,13 @@ export const NavigationBar = ({ children, className }: NavigationBarProps): Reac
         <a>Docs</a>
       </li>
       <li>
-        <a>Getting Started</a>
+        <a>Quick Start</a>
       </li>
       <li>
-        <a>Designer Resources</a>
+        <a>Design</a>
+      </li>
+      <li>
+        <a>Github</a>
       </li>
     </ul>
   </StyledNavigationBarElement>

@@ -10,7 +10,7 @@ export const StyledFooterElement = styled.footer`
   padding: ${sizes.padding.sm} ${sizes.padding.md};
   margin: 0;
   min-height: 14rem;
-  border-bottom: solid 16px ${colors.primary.base};
+  border-bottom: solid 16px ${colors.neutrals.silver.base};
   box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.11);
 `;
 

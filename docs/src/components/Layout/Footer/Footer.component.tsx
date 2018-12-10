@@ -7,10 +7,14 @@ import classNames from 'classnames';
 import { colors, sizes } from '../../../../../src/theme';
 // COMPONENTS
 
-export const StyledFooterElement = styled.header`
-  padding: ${sizes.padding.md};
-  background-color: ${colors.background.base};
-  border-top: solid thin ${colors.border.base};
+export const StyledFooterElement = styled.footer`
+  padding: ${sizes.padding.sm};
+  background-color: ${colors.neutrals.silver.light};
+  border-top: solid thin ${colors.neutrals.silver.base};
+  height: 6rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 `;
 
 interface FooterProps {
