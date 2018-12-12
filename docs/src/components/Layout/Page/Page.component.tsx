@@ -5,9 +5,10 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { MDXProvider } from '@mdx-js/tag';
 // COMPONENTS
-import { NormalizeCSS, GlobalCSS } from '../../../../../src/theme';
+import { NormalizeCSS, GlobalCSS, sizes } from '../../../../../src/theme';
 import { Header, Footer } from '../';
 import { SideNavigation } from '../../Navigation';
+import { CodePreview } from '../../CodePreview';
 
 export const StyledPageElement = styled.div`
   height: 100vh;
@@ -32,15 +33,19 @@ const StyledContentBody = styled.div`
   height: calc(100vh - 4rem);
   overflow: hidden;
 
+
   main {
     overflow-x: hidden;
     overflow-y: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: ${sizes.padding.sm};
   }
 `;
 
 const Components: any = {};
 
-Components.code = (props: any) => <pre className="code" {...props} />;
+Components.code = (props: any) => <CodePreview>{props.children}</CodePreview>;
 Components.inlineCode = (props: any) => <code className="code" {...props} />;
 Components.wrapper = (props: any) => <React.Fragment {...props} />;
 Components.h1 = (props: any) => <h1 className="heading h1" {...props} />;
