@@ -7,14 +7,14 @@ import { Page } from '../components/Layout';
 // THEME
 import { sizes } from '../../../src/theme';
 
-const StyledIndexPage = styled.div`
+const StyledUtilitiesPage = styled.div`
   padding: ${sizes.padding.xs} ${sizes.padding.sm};
 `;
 
-export const IndexPage = (): React.ReactElement<any> => (
+export const UtilitiesPage = (): React.ReactElement<any> => (
   <Page>
-    <StyledIndexPage>
-      <h1>Home</h1>
+    <StyledUtilitiesPage>
+      <h1>Utilities</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget turpis scelerisque, euismod turpis eget,
         pretium tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris
@@ -39,8 +39,13 @@ export const IndexPage = (): React.ReactElement<any> => (
         ullamcorper eu. Nam vestibulum mauris quis mi commodo semper. Praesent volutpat, urna ut blandit aliquet, magna
         turpis pretium ex, vel eleifend nulla diam ac nibh.
       </p>
-    </StyledIndexPage>
+      <ul>
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+      </ul>
+    </StyledUtilitiesPage>
   </Page>
 );
 
-export default IndexPage;
+export default UtilitiesPage;

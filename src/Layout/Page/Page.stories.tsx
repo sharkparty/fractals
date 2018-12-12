@@ -4,15 +4,14 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 // COMPONENT
-import Button from './Button.component';
+import { Page } from './Page.component';
 
 const StyledStory = styled.div`
   padding: 10rem;
 `;
 
-storiesOf('Components/Button', module)
-  .add('default', () => (
-      <StyledStory>
-          <Button theme={{ bg: 'red' }}>Story</Button>
-      </StyledStory>
-  ));
+storiesOf('Components/Page', module).add('default', () => (
+    <StyledStory>
+        <Page>Story</Page>
+    </StyledStory>
+));

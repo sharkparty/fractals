@@ -1,26 +1,35 @@
 // REACT
 import * as React from 'react';
-// STYLES
-import styled from 'styled-components';
+// VENDOR
+import classNames from 'classnames';
+import styled, { ThemeProvider } from 'styled-components';
 
-export const Button = styled.button`
-    background: transparent;
-    border-radius: 3px;
-    border: 2px solid palevioletred;
-    color: palevioletred;
-    margin: 0.5em 1em;
-    padding: 0.25em 1em;
-    cursor: pointer;
+export const StyledButton = styled.button`
+    background: ${props => props.theme.bg};
 `;
 
 interface ButtonProps {
-  borders?: boolean;
-  className?: string;
+  theme?: any;
   children?: any;
+  disabled?: boolean;
+  onClick?: () => void;
+  type?: any;
+  showSpinner?: boolean;
+  className?: string;
 }
 
-const StyledButton = ({ children }: ButtonProps): React.ReactElement<any> => (
-  <Button>{children}</Button>
+const DefaultProps: ButtonProps = {
+  theme: {
+    bg: 'yellow',
+  },
+};
+
+export const Button = ({ children, className, theme }: ButtonProps = DefaultProps): React.ReactElement<any> => (
+  <ThemeProvider theme={theme}>
+    <StyledButton className={classNames(className)}>{children}</StyledButton>
+  </ThemeProvider>
 );
 
-export default StyledButton;
+Button.defaultProps = DefaultProps;
+
+export default Button;

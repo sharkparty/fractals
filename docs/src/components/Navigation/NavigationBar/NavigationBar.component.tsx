@@ -3,6 +3,7 @@ import * as React from 'react';
 // VENDOR
 import styled from 'styled-components';
 import classNames from 'classnames';
+import { rgba } from 'polished';
 // THEME
 import { colors } from '../../../../../src/theme';
 
@@ -32,7 +33,7 @@ export const StyledNavigationBarElement = styled.nav`
 
         &:hover {
           border-bottom-color: ${colors.neutrals.silver.dark};
-          background-color: ${colors.neutrals.silver.base};
+          background-color: ${rgba(colors.neutrals.silver.light, 0.1)};
         }
       }
     }

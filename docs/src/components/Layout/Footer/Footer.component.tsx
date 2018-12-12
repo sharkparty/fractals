@@ -12,8 +12,6 @@ export const StyledFooterElement = styled.footer`
   background-color: ${colors.neutrals.silver.light};
   border-top: solid thin ${colors.neutrals.silver.base};
   height: 6rem;
-  position: fixed;
-  bottom: 0;
   width: 100%;
 `;
 

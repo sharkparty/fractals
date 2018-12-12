@@ -3,6 +3,7 @@ import * as React from 'react';
 // VENDOR
 import styled from 'styled-components';
 import classNames from 'classnames';
+import { Link } from 'gatsby';
 // THEME
 import { colors, fonts, sizes } from '../../../../../src/theme';
 
@@ -45,13 +46,19 @@ export const StyledSideNavigationElement = styled.nav`
         display: block;
         padding: ${sizes.padding.xs};
         cursor: pointer;
+        text-decoration: none;
+        color: ${colors.neutrals.charcoal.light};
 
         font-size: ${fonts.paragraph.informational.fontSize};
 
         transition: background-color 250ms;
 
-        :hover {
+        &:hover {
           background-color: ${colors.neutrals.silver.dark};
+        }
+
+        &.active {
+          color: ${colors.neutrals.charcoal.dark};
         }
       }
     }
@@ -63,31 +70,42 @@ interface SideNavigationProps {
   children?: any;
 }
 
+interface NavigationItem {
+  route: string;
+  label: string;
+  children?: any[];
+}
+
+const navOptions: NavigationItem[] = [
+  { route: '/support', label: 'Support' },
+  { route: '/utilities', label: 'Utilities', children: [
+      { route: '/theme', label: 'Theme' },
+  ]},
+  { route: '/components', label: 'Components', children: [
+      { route: '/components/button', label: 'Button' },
+      { route: '/components/grid', label: 'Grid' },
+      { route: '/components/layout', label: 'Layout' },
+  ]},
+];
+
+const navLink = (route: string, label: string, children?: any[]): React.ReactElement<any> => (
+  <li key={label}>
+    <Link to={route} activeClassName="active">{label}</Link>
+    {children && children.length ?
+      <ul>
+        {children
+          .map(({ route: subRoute, label: subLabel, children: subChildren }) => navLink(subRoute, subLabel, subChildren)
+        )}
+      </ul>
+      : null
+    }
+  </li>
+);
+
 export const SideNavigation = ({ children, className }: SideNavigationProps): React.ReactElement<any> => (
   <StyledSideNavigationElement className={classNames(className)}>
     <ul>
-      <li>
-        <a>Support</a>
-      </li>
-      <li>
-        <a>Utilities</a>
-        <ul>
-          <li>
-            <a>Theme</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a>Components</a>
-        <ul>
-          <li>
-            <a>Button</a>
-          </li>
-          <li>
-            <a>Layout</a>
-          </li>
-        </ul>
-      </li>
+      {navOptions.map(({ route, label, children: navChildren }) => navLink(route, label, navChildren))}
     </ul>
   </StyledSideNavigationElement>
 );

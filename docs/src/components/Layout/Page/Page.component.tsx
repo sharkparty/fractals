@@ -3,6 +3,7 @@ import * as React from 'react';
 // VENDOR
 import styled from 'styled-components';
 import classNames from 'classnames';
+import { MDXProvider } from '@mdx-js/tag';
 // COMPONENTS
 import { NormalizeCSS, GlobalCSS } from '../../../../../src/theme';
 import { Header, Footer } from '../';
@@ -23,15 +24,42 @@ export const StyledPageElement = styled.div`
 interface PageProps {
   className?: string;
   children?: any;
+  enableFooter?: boolean;
 }
 
 const StyledContentBody = styled.div`
   display: flex;
   height: calc(100vh - 4rem);
   overflow: hidden;
+
+  main {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 `;
 
-export const Page = ({ children, className }: PageProps): React.ReactElement<any> => (
+const Components: any = {};
+
+Components.code = (props: any) => <pre className="code" {...props} />;
+Components.inlineCode = (props: any) => <code className="code" {...props} />;
+Components.wrapper = (props: any) => <React.Fragment {...props} />;
+Components.h1 = (props: any) => <h1 className="heading h1" {...props} />;
+Components.h2 = (props: any) => <h2 className="heading h2" {...props} />;
+Components.h3 = (props: any) => <h3 className="heading h3" {...props} />;
+Components.h4 = (props: any) => <h4 className="heading h4" {...props} />;
+Components.h5 = (props: any) => <h5 className="heading h5" {...props} />;
+Components.h6 = (props: any) => <h6 className="heading h6" {...props} />;
+Components.p = (props: any) => <p className="paragraph" {...props} />;
+Components.ul = (props: any) => <ul className="ul" {...props} />;
+Components.ol = (props: any) => <ol className="ol" {...props} />;
+Components.li = (props: any) => <li className="li" {...props} />;
+Components.a = (props: any) => <a className="link" {...props} />;
+Components.blockquote = (props: any) => (
+  <blockquote className="blockquote" {...props} />
+);
+Components.strong = (props: any) => <strong className="strong" {...props} />;
+
+export const Page = ({ children, className, enableFooter }: PageProps): React.ReactElement<any> => (
   <StyledPageElement className={classNames(className)}>
     <NormalizeCSS />
     <GlobalCSS />
@@ -39,9 +67,13 @@ export const Page = ({ children, className }: PageProps): React.ReactElement<any
     <StyledContentBody>
       <SideNavigation />
       <main>
-        {children}
-        <Footer />
+        <MDXProvider components={Components}>
+          {children}
+        </MDXProvider>
+        {enableFooter && <Footer />}
       </main>
     </StyledContentBody>
   </StyledPageElement>
 );
+
+export default Page;

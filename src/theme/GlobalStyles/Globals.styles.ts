@@ -1,7 +1,19 @@
 // VENDOR
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 // THEME
 import { colors, fonts } from '..';
+
+const headingRules = (hLevel: string): string => `
+  ${hLevel} {
+    font-weight: ${fonts.heading[`${hLevel}`].fontWeight};
+    line-height: ${fonts.heading[`${hLevel}`].lineHeight};
+    font-size: ${fonts.heading[`${hLevel}`].fontSize};
+  }
+`;
+
+const typography = css`
+  ${[...Object.keys(fonts.heading)].map(headingRules)}
+`;
 
 export const GlobalCSS = createGlobalStyle`
   html {
@@ -14,4 +26,6 @@ export const GlobalCSS = createGlobalStyle`
   body {
     height: 100vh;
   }
+
+  ${typography}
 `;
