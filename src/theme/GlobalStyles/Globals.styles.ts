@@ -13,17 +13,25 @@ const headingRules = (hLevel: string): string => `
 
 const typography = css`
   ${[...Object.keys(fonts.heading)].map(headingRules)}
+
+  p {
+    font-family: ${fonts.fontFamily};
+    font-size: ${fonts.paragraph.base.fontSize};
+    line-height: ${fonts.paragraph.base.lineHeight};
+    font-weight: ${fonts.paragraph.base.fontWeight};
+  }
 `;
 
 export const GlobalCSS = createGlobalStyle`
   html {
-    font-family: Avenir Next, Calibri, Helvetica, Roboto, sans-serif;
     color: ${colors.neutrals.charcoal.base};
     font-size: ${fonts.baseFontSize}px;
     letter-spacing: 0;
     line-height: 1.357142857rem;
   }
+
   body {
+    font-family: Avenir Next, Segoe UI, Helvetica, Roboto, sans-serif;
     height: 100vh;
   }
 

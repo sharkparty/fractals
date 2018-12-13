@@ -1,7 +1,9 @@
 const baseFontSize = 16;
+const fontFamily = 'Avenir Next, Segoe UI, Helvetica, Roboto, sans-serif';
 
 export default {
   baseFontSize,
+  fontFamily,
   paragraph: {
     base: {
       fontSize: `${baseFontSize}px`,
