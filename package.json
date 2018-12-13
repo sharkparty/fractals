@@ -43,14 +43,15 @@
   "license": "UNLICENSED",
   "peerDependencies": {
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "styled-components": ">= 3"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.44",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.42",
-    "@babel/preset-typescript": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
     "@storybook/addon-actions": "^4.0.4",
     "@storybook/addon-info": "^4.0.4",
     "@storybook/addon-knobs": "^4.0.4",
@@ -59,9 +60,12 @@
     "@storybook/addon-storyshots": "^3.4.2",
     "@storybook/addons": "^4.0.4",
     "@storybook/react": "^4.0.4",
+    "@types/classnames": "^2.2.6",
     "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.9",
+    "@types/json-schema": "^7.0.1",
+    "@types/lodash": "^4.14.118",
     "@types/node": "^10.12.2",
     "@types/react": "^16.4.18",
     "@types/react-test-renderer": "^16.0.3",
@@ -99,9 +103,11 @@
     "typescript": "^3.1.6"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
+    "polished": "^2.3.1",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "styled-components": "^4.0.3"
+    "react-dom": "^16.6.0"
   },
   "engines": {
     "node": ">=8"
