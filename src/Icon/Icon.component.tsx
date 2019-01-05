@@ -10,6 +10,7 @@ import { Hamburger } from './SVGs';
 interface IconProps {
   children?: any;
   className?: string;
+  color?: string;
   type: 'hamburger';
 }
 
@@ -18,11 +19,16 @@ export const StyledIcon = styled.i`
 
 const DefaultProps: IconProps = {
   type: 'hamburger',
+  color: 'red',
 };
 
-export const Icon = ({ className, ...props }: IconProps = DefaultProps): React.ReactElement<any> => (
+const Icons = {
+  hamburger: Hamburger,
+};
+
+export const Icon = ({ className, type, color, ...props }: IconProps = DefaultProps): React.ReactElement<any> => (
   <StyledIcon className={classNames(className)} {...props}>
-    <Hamburger color={'orange'} />
+    {Icons[type]({ color })}
   </StyledIcon>
 );
 

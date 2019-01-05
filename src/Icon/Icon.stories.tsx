@@ -9,13 +9,6 @@ import Icon from './Icon.component';
 
 const StyledStory = styled.div`
   padding: 2rem 5rem;
-
-  .container {
-    border: solid thin grey;
-    > div > div {
-      border: solid thin lightgrey;
-    }
-  }
 `;
 
 storiesOf('Components/Icon', module)
