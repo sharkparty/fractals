@@ -9,7 +9,7 @@ import { sizes, colors } from '../../theme';
 import { version } from '../../../package.json';
 
 export const StyledHeaderElement = styled.header`
-  padding: ${sizes.padding.sm} ${sizes.padding.md};
+  padding: ${sizes.padding.lg} ${sizes.padding.xl};
   background-color: ${colors.main.grapePurchase.base};
   margin: 0;
   color: ${colors.neutrals.white.base};

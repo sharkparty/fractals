@@ -24,7 +24,7 @@ export const StyledSideNavigationElement = styled.nav`
     }
 
    ul li a {
-    padding-left: ${sizes.padding.sm};
+    padding-left: ${sizes.padding.lg};
    }
 
    &:last-of-type {
@@ -44,7 +44,7 @@ export const StyledSideNavigationElement = styled.nav`
 
       a {
         display: block;
-        padding: ${sizes.padding.xs};
+        padding: ${sizes.padding.md};
         cursor: pointer;
         text-decoration: none;
         color: ${colors.neutrals.charcoal.light};

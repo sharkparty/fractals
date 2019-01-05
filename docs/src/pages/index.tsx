@@ -4,17 +4,19 @@ import * as React from 'react';
 import styled from 'styled-components';
 // COMPONENTS
 import { Page } from '../components/Layout';
+import { Button } from '../../../src/Button';
 // THEME
 import { sizes } from '../../../src/theme';
 
 const StyledIndexPage = styled.div`
-  padding: ${sizes.padding.xs} ${sizes.padding.sm};
+  padding: ${sizes.padding.md} ${sizes.padding.lg};
 `;
 
 export const IndexPage = (): React.ReactElement<any> => (
   <Page>
     <StyledIndexPage>
       <h1>Home</h1>
+      <Button onClick={() => console.log(1)}>Derp</Button>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget turpis scelerisque, euismod turpis eget,
         pretium tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris

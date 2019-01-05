@@ -20,7 +20,7 @@ export default {
     base: {
       fontSize: `${baseFontSize * .75}px`,
       lineHeight: `${baseFontSize}px`,
-      fontWeight: 'normal',
+      fontWeight: '500',
     },
   },
   heading: {
