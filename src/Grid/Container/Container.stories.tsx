@@ -24,7 +24,7 @@ const StyledStory = styled.div`
 const columnArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 storiesOf('Components/Container', module)
-  .add('Default', () => (
+  .add('All', () => (
       <StyledStory>
         <Container className="container" py={2}>
           <Flex>

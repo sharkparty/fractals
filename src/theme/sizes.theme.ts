@@ -1,6 +1,7 @@
-import fonts from './fonts.theme';
+// VARIABLES
+import variables from './variables.theme';
 
-const { baseFontSize: base } = fonts;
+const { baseFontSize: base } = variables;
 
 interface Sizes {
   xs: string;

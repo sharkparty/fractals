@@ -1,5 +1,7 @@
-const baseFontSize = 16;
-const fontFamily = 'Avenir Next, Segoe UI, Helvetica, Roboto, sans-serif';
+// VARIABLES
+import variables from './variables.theme';
+
+const { baseFontSize, fontFamily } = variables;
 
 export default {
   baseFontSize,
@@ -21,6 +23,27 @@ export default {
       fontSize: `${baseFontSize * .75}px`,
       lineHeight: `${baseFontSize}px`,
       fontWeight: '500',
+    },
+    menu: {
+      fontSize: `${baseFontSize * .875}px`,
+      lineHeight: `${baseFontSize}px`,
+      small: {
+        base: {
+          fontSize: `${baseFontSize * 0.75}px`,
+          fontWeight: '500',
+        },
+        active: {
+          fontWeight: '700',
+        },
+      },
+      large: {
+        base: {
+          fontWeight: '600',
+        },
+        active: {
+          fontWeight: '700',
+        },
+      },
     },
   },
   heading: {

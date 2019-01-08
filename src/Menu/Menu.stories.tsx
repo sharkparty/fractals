@@ -1,0 +1,44 @@
+// REACT
+import * as React from 'react';
+// STORYBOOK
+import { storiesOf } from '@storybook/react';
+// VENDOR
+import styled from 'styled-components';
+// COMPONENT
+import Menu from './Menu.component';
+import { Item } from './Item';
+import { Icon } from '../Icon';
+
+const StyledStory = styled.div`
+  padding: 2rem 5rem;
+`;
+
+storiesOf('Components/Menu', module)
+  .add('Default', () => (
+      <StyledStory>
+          <p>Large</p>
+          <Menu>
+            <Item active={true} path="/">Categories <Icon type="chevron-down" color="white" /></Item>
+            <Item path="/">Stores <Icon type="chevron-down" color="white" /></Item>
+            <Item path="/">More <Icon type="chevron-down" color="white" /></Item>
+          </Menu>
+          <br/>
+          <p>Small</p>
+          <Menu size="small">
+            <Item path="/">Rx Saver</Item>
+            <Item path="/">Genie</Item>
+            <Item path="/">Everyday</Item>
+            <Item path="/">Real Deal</Item>
+            <Item path="/">Get the App</Item>
+          </Menu>
+          <br/>
+          <p>Small & Custom Color</p>
+          <Menu size="small" bg="#4B2354">
+            <Item path="/">Rx Saver</Item>
+            <Item path="/">Genie</Item>
+            <Item path="/">Everyday</Item>
+            <Item path="/">Real Deal</Item>
+            <Item path="/">Get the App</Item>
+          </Menu>
+      </StyledStory>
+  ));

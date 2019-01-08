@@ -4,8 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import { Box, BoxProps } from '@rebass/grid';
-// THEME
-// import {  } from '../theme';
+// import { debounceTime } from 'rxjs/operators';
 
 interface ContainerProps extends BoxProps {
   children?: any;
@@ -13,7 +12,7 @@ interface ContainerProps extends BoxProps {
 }
 
 export const StyledContainer = styled(Box)`
-  max-width: 1024px;
+  max-width: 1140px;
 `;
 
 const DefaultProps: ContainerProps = {};

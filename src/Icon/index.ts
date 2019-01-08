@@ -1,1 +1,1 @@
-export { default as Container } from './Container.component';
+export { default as Icon } from './Icon.component';

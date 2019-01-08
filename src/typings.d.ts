@@ -11,15 +11,18 @@ declare module '@rebass/grid' {
   interface BoxProps {
     width?: number | string | number[] | string[];
     order?: number | string | number[] | string[];
-    alignSelf?: string | string[];
-    alignItems?: string | string[];
-    flexDirection?: string | string[];
-    flexWrap?: string | string[];
     flex?: string | string[]; // According to the docs numbers don't work here ¯\_(ツ)_/¯
     className?: string;
     fontSize?: number | number[];
 
+    alignSelf?: string | string[];
+    alignItems?: AlignItemsProperty | AlignItemsProperty[];
+    justifyContent?: FlexProperty | FlexProperty[];
+    flexDirection?: FlexDirectionProperty | FlexDirectionProperty[];
+    flexWrap?: FlexWrapProperty | FlexWrapProperty[];
+
     bg?: string;
+
     // Margins
     m?: MarginValue;
     mt?: MarginValue;
@@ -28,6 +31,7 @@ declare module '@rebass/grid' {
     ml?: MarginValue;
     mx?: MarginValue;
     my?: MarginValue;
+
     // Padding
     p?: PaddingValue;
     pt?: PaddingValue;
@@ -38,6 +42,8 @@ declare module '@rebass/grid' {
     py?: PaddingValue;
 
     css?: any;
+
+    as?: string;
   }
 
   interface FlexProps extends BoxProps {

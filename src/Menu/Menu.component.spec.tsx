@@ -2,16 +2,16 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 // COMPONENT
-import Icon from './Icon.component';
+import Menu from './Menu.component';
 // ENZYME
 import { shallow, mount } from 'enzyme';
 
 // TEST SETUP
-const subject = <Icon type="hamburger"/>;
+const subject = <Menu>Test</Menu>;
 const wrapper = mount(subject);
 const component = shallow(subject);
 
-describe('Component: Button', () => {
+describe('Component: Menu', () => {
     it('should be defined', () => {
         /* tslint:disable */
         console.log(subject);
@@ -22,7 +22,7 @@ describe('Component: Button', () => {
         expect(subject).toBeDefined();
         expect(wrapper).toBeDefined();
         expect(component).toBeDefined();
-        const tree = renderer.create(subject).toJSON();
+        const tree = renderer.create(<Menu>Submit</Menu>).toJSON();
 
         expect(tree).toMatchSnapshot();
     });

@@ -1,4 +1,3 @@
-/* tslint:disable max-line-length */
 // REACT
 import * as React from 'react';
 
@@ -6,9 +5,10 @@ interface Props {
   color?: string;
 }
 
+/* tslint:disable max-line-length */
 export default ({ color }: Props) => (
   <svg width="26px" height="20px" viewBox="0 0 26 20" version="1.1">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <path
         d="M1.4625,4 L24.5375,4 C25.345125,4 26,3.105 26,2 C26,0.895 25.345125,0 24.5375,0 L1.4625,0 C0.654875,0 0,0.895 0,2 C0,3.105 0.654875,4 1.4625,4"
         id="Top-Fill"
