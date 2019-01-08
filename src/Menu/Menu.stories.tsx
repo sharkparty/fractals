@@ -32,8 +32,8 @@ storiesOf('Components/Menu', module)
             <Item path="/">Get the App</Item>
           </Menu>
           <br/>
-          <p>Small & Custom Color</p>
-          <Menu size="small" bg="#4B2354">
+          <p>Small, Custom Color, & Custom Position</p>
+          <Menu size="small" bg="#4B2354" justify="flex-end">
             <Item path="/">Rx Saver</Item>
             <Item path="/">Genie</Item>
             <Item path="/">Everyday</Item>

@@ -10,14 +10,14 @@ import { ItemProps } from './Item/Item.component';
 import { colors, fonts, sizes, variables } from '../theme';
 
 interface MenuProps {
-  children?: any;
+  children?: Array<React.ReactElement<ItemProps>> | React.ReactElement<ItemProps>;
   className?: string;
   size?: 'small' | 'large';
-
+  // Color
   bg?: string;
   color?: string;
-
-  links?: ItemProps[];
+  // Configuration
+  justify?: 'flex-start' | 'flex-end';
 }
 
 export const StyledMenu = styled.nav`
@@ -39,24 +39,27 @@ export const StyledMenu = styled.nav`
     flex: 1 0 0;
     max-width: 6rem;
     min-width: 5rem;
-    color: ${({ color = colors.neutrals.silver.dark}: MenuProps) => color};
+    color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => color};
 
     &:hover {
-      color: ${({ color = colors.neutrals.silver.dark}: MenuProps) => lighten(20, color)};
+      color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => lighten(20, color)};
     }
 
     &:active,
     &.active {
-      color: ${({ color = colors.neutrals.silver.dark}: MenuProps) => lighten(20, color)};
+      color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => lighten(20, color)};
     }
 
     &:focus {
-      color: ${({ color = colors.neutrals.silver.dark}: MenuProps) => lighten(20, color)};
+      color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => lighten(20, color)};
     }
     }
 
   /* Menu Sizes */
   ${({ size = 'large' }: MenuProps) => MenuSizes[size]}
+
+  /* Positioning */
+  justify-content: ${({ justify = 'flex-start' }: MenuProps) => justify};
 `;
 
 const MenuSizes = {
@@ -90,8 +93,9 @@ const DefaultProps: MenuProps = {
   size: 'large',
 };
 
-export const Menu = ({ className, links, children, ...props }: MenuProps = DefaultProps): React.ReactElement<any> => (
+export const Menu = ({ className, children, ...props }: MenuProps = DefaultProps): React.ReactElement<any> => (
   <StyledMenu className={classNames(className)} {...props}>
+    {/* TODO: React.cloneElement() to add props from parent to child? */}
     {children}
   </StyledMenu>
 );
