@@ -7,7 +7,7 @@ import Item from './Item.component';
 import { shallow, mount } from 'enzyme';
 
 // TEST SETUP
-const subject = <Item path="/" />;
+const subject = <Item>Item</Item>;
 const wrapper = mount(subject);
 const component = shallow(subject);
 
