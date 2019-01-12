@@ -2,7 +2,7 @@
 import * as React from 'react';
 // VENDOR
 import classNames from 'classnames';
-import styled, { css } from 'styled-components';
+import styled, { css, InterpolationValue } from 'styled-components';
 import { darken } from 'polished';
 // THEME
 import { colors, fonts, sizes } from '../theme';
@@ -10,15 +10,21 @@ import { colors, fonts, sizes } from '../theme';
 interface ButtonProps {
   children?: any;
   disabled?: boolean;
-  onClick?: () => void;
-  type?: any;
   showSpinner?: boolean;
   className?: string;
 
+  onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'text';
+  size?: 'sm' | 'md' | 'lg';
 }
 
-const ButtonColorStyles = {
+interface ButtonStylesGroup {
+  [key: string]: InterpolationValue[];
+}
+
+// TODO: a11y
+
+const ButtonColorStyles: ButtonStylesGroup = {
   primary: css`
     border: solid thin ${colors.accent.savvyCyan.base};
     background-color: ${colors.accent.savvyCyan.base};
@@ -48,33 +54,59 @@ const ButtonColorStyles = {
   `,
 };
 
+const ButtonSizeStyles: ButtonStylesGroup = {
+  sm: css`
+    padding: ${sizes.padding.xs};
+    font-size: ${fonts.baseFontSize * 0.75}px;
+  `,
+  md: css`
+    padding: ${sizes.padding.sm} ${sizes.padding.md};
+    font-size: ${fonts.baseFontSize}px;
+  `,
+  lg: css`
+    padding: ${sizes.padding.md};
+    font-size: ${fonts.baseFontSize * 1.5}px;
+  `,
+};
+
 export const StyledButton = styled.button`
 	position: relative;
-  width: 100%;
-	min-width: 2em;
-	padding: ${sizes.padding.xs};
-	border-radius: 3px;
-	font-size: ${fonts.typography.body.fontSize};
-	font-weight: 600;
+	min-width: 2rem;
+	border-radius: ${sizes.border.radius.base};
+	font-weight: 500;
 	font-family: ${fonts.fontFamily};
 	text-align: center;
-	text-decoration: none;
 	cursor: pointer;
-	transition: 0.5s ease background-color, 0.5s ease border-color, 0.5s ease color, 0.5s ease fill;
+  margin-right: ${sizes.padding.md};
 
-	// these properties are deprecated but help make white text on colored
-	// backgrounds look more crisp in Chrome and Firefox.
+	transition: 500ms ease background-color,
+	            500ms ease border-color,
+              500ms ease color,
+              500ms ease fill;
+
+	// These properties are deprecated but help make white text on colored backgrounds look more crisp in Chrome and
+	// Firefox.
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-  ${({ variant }: ButtonProps) => ButtonColorStyles[variant || 'primary']}
+  /* Variants are color schemes */
+  ${({ variant = 'primary' }: ButtonProps) => ButtonColorStyles[variant]}
+
+  /* Sizes */
+  ${({ size = 'md' }: ButtonProps) => ButtonSizeStyles[size]}
+
+  /* Disabled State */
+  ${({ disabled }: ButtonProps) => disabled && css`
+    opacity: .5;
+    cursor: not-allowed;
+  `}
+
 `;
 
 const DefaultProps: ButtonProps = {};
 
-export const Button = ({ children, className, variant }: ButtonProps = DefaultProps): React.ReactElement<any> => (
-  <StyledButton variant={variant} className={classNames(className)}>{children}</StyledButton>
-);
+export const Button = ({ className, ...props }: ButtonProps = DefaultProps): React.ReactElement<any> =>
+  <StyledButton className={classNames(className)} {...props} />;
 
 Button.defaultProps = DefaultProps;
 

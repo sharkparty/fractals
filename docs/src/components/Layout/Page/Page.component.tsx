@@ -39,7 +39,7 @@ const StyledContentBody = styled.div`
     overflow-y: auto;
     max-width: 1200px;
     margin: 0 auto;
-    padding: ${sizes.padding.sm};
+    padding: ${sizes.padding.lg};
   }
 `;
 
@@ -70,6 +70,7 @@ export const Page = ({ children, className, enableFooter }: PageProps): React.Re
     <StyledContentBody>
       <SideNavigation />
       <main>
+        {/* TODO: Add bread-crumbing */}
         <MDXProvider components={Components}>
           {children}
         </MDXProvider>

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { sizes, colors } from '../../theme';
 
 export const StyledFooterElement = styled.footer`
-  padding: ${sizes.padding.sm} ${sizes.padding.md};
+  padding: ${sizes.padding.lg} ${sizes.padding.xl};
   margin: 0;
   min-height: 14rem;
   border-bottom: solid 16px ${colors.neutrals.silver.base};

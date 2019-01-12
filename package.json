@@ -52,12 +52,14 @@
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
-    "@storybook/addon-actions": "^4.0.4",
-    "@storybook/addon-info": "^4.0.4",
-    "@storybook/addon-knobs": "^4.0.4",
+    "@storybook/addon-a11y": "^4.1.2",
+    "@storybook/addon-actions": "^4.1.2",
+    "@storybook/addon-info": "^4.1.2",
+    "@storybook/addon-knobs": "^4.1.2",
     "@storybook/addon-links": "^4.0.4",
     "@storybook/addon-options": "^4.0.4",
     "@storybook/addon-storyshots": "^3.4.2",
+    "@storybook/addon-viewport": "^4.1.2",
     "@storybook/addons": "^4.0.4",
     "@storybook/react": "^4.0.4",
     "@types/classnames": "^2.2.6",
@@ -95,6 +97,7 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript": "^1.0.0",
     "storybook-addon-jsx": "^5.4.0",
+    "styled-components": "^4.1.3",
     "ts-jest": "^23.10.4",
     "tslib": "^1.9.3",
     "tslint": "^5.11.0",
@@ -103,11 +106,13 @@
     "typescript": "^3.1.6"
   },
   "dependencies": {
+    "@rebass/grid": "^6.0.0-7",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "polished": "^2.3.1",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "rxjs": "^6.3.3"
   },
   "engines": {
     "node": ">=8"

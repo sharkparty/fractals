@@ -8,7 +8,7 @@ import { Page } from '../components/Layout';
 import { sizes } from '../../../src/theme';
 
 const StyledThemePage = styled.div`
-  padding: ${sizes.padding.xs} ${sizes.padding.sm};
+  padding: ${sizes.padding.md} ${sizes.padding.lg};
 `;
 
 export const ThemePage = (): React.ReactElement<any> => (

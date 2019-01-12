@@ -2,6 +2,7 @@
 import * as React from 'react';
 // VENDOR
 import styled from 'styled-components';
+// import { Box } from '@rebass/grid';
 // STYLES
 import { colors, sizes } from '../../theme';
 // COMPONENTS
@@ -30,7 +31,7 @@ export const StyledBodyElement = styled.section`
   background-color: ${colors.neutrals.silver.base};
   max-width: 100vw;
   align-self: stretch;
-  padding: ${sizes.padding.sm} ${sizes.padding.md};
+  padding: ${sizes.padding.lg} ${sizes.padding.xl};
 `;
 
 interface PageProps {
