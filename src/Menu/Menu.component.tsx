@@ -7,7 +7,7 @@ import { lighten } from 'polished';
 // COMPONENTS
 import { ItemProps } from './Item/Item.component';
 // THEME
-import { colors, fonts, sizes, variables } from '../theme';
+import { colors, fonts, variables } from '../theme';
 
 interface MenuProps {
   children?: Array<React.ReactElement<ItemProps>> | React.ReactElement<ItemProps>;
@@ -23,37 +23,49 @@ interface MenuProps {
 export const StyledMenu = styled.nav`
   margin: 0;
   padding: 0;
-  display: flex;
+  display: block;
   width: 100%;
   min-width: 250px;
 
-  overflow-y: hidden;
-  overflow-x: auto;
+  //overflow-y: hidden;
+  //overflow-x: auto;
 
   background: ${({ bg = colors.main.grapePurchase.base }: MenuProps) => bg};
   font-size: ${fonts.navigation.menu.fontSize};
   font-family: ${fonts.fontFamily};
   border-radius: ${variables.borderRadius};
 
-  a {
-    flex: 1 0 0;
-    max-width: 6rem;
-    min-width: 5rem;
-    color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => color};
+  > div > a {
+    display: inline-block;
+    line-height: 1.125rem;
+    color: ${({ color = colors.neutrals.white.base }: MenuProps) => color};
+    transition: background-color 500ms, color: 500ms;
+    margin: 0 0.125rem;
 
     &:hover {
-      color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => lighten(20, color)};
+      color: ${({ color = colors.neutrals.white.base }: MenuProps) => lighten(20, color)};
+      background-color: rgba(255, 255, 255, .1);
     }
 
     &:active,
     &.active {
-      color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => lighten(20, color)};
+      color: ${({ color = colors.neutrals.white.base }: MenuProps) => lighten(20, color)};
+      background-color: rgba(255, 255, 255, .1); // TODO: more or less opacity
     }
 
     &:focus {
       color: ${({ color = colors.neutrals.silver.dark }: MenuProps) => lighten(20, color)};
+      background-color: rgba(255, 255, 255, .1);
     }
+
+    &:first-child {
+      margin-left: 0;
     }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
   /* Menu Sizes */
   ${({ size = 'large' }: MenuProps) => MenuSizes[size]}
@@ -65,26 +77,18 @@ export const StyledMenu = styled.nav`
 const MenuSizes = {
   small: css`
     height: ${fonts.baseFontSize * 2};
-    a {
+    > div > a {
       font-size: ${fonts.navigation.menu.small.base.fontSize};
+      line-height: ${fonts.navigation.menu.small.base.fontSize};
       font-weight: ${fonts.navigation.menu.small.base.fontWeight};
-      padding: ${sizes.padding.sm} ${sizes.padding.sm};
-
-      &:active,
-      &.active {
-        font-weight: ${fonts.navigation.menu.small.active.fontWeight};
-      }
+      padding: .5rem .75rem;
     }
   `,
   large: css`
-    a {
+    > div > a {
+      border-radius: ${variables.borderRadius};
       font-weight: ${fonts.navigation.menu.large.base.fontWeight};
-      padding: ${sizes.padding.md} ${sizes.padding.sm};
-
-      &:active,
-      &.active {
-        font-weight: ${fonts.navigation.menu.large.active.fontWeight};
-      }
+      padding: 1rem .75rem;
     }
   `,
 };

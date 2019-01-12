@@ -15,6 +15,6 @@ storiesOf('Components/Item', module)
   .add('Primary', () => (
       <StyledStory>
           <p>Item</p>
-          <Item label="Link" path="/" />
+        <Item>Item 1</Item>
       </StyledStory>
   ));

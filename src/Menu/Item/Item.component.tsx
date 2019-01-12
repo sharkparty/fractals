@@ -30,6 +30,7 @@ export const StyledItem = styled.a`
   user-select: none;
   -webkit-touch-callout: none;
 
+  // TODO: this doesn't go here (Law of Demeter)
   /* Icons */
   svg {
     max-width: 8px;

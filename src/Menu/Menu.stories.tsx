@@ -4,7 +4,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 // VENDOR
 import styled from 'styled-components';
-// COMPONENT
+// COMPONENTS
 import Menu from './Menu.component';
 import { Item } from './Item';
 import { Icon } from '../Icon';
@@ -18,9 +18,9 @@ storiesOf('Components/Menu', module)
       <StyledStory>
           <p>Large</p>
           <Menu>
-            <Item active={true} path="/">Categories <Icon type="chevron-down" color="white" /></Item>
+            <Item path="/">Categories <Icon type="chevron-down" color="white" /></Item>
             <Item path="/">Stores <Icon type="chevron-down" color="white" /></Item>
-            <Item path="/">More <Icon type="chevron-down" color="white" /></Item>
+            <Item path="/">More</Item>
           </Menu>
           <br/>
           <p>Small</p>

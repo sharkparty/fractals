@@ -2,16 +2,16 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 // COMPONENT
-import Item from './Item.component';
+import Avatar from './Avatar.component';
 // ENZYME
 import { shallow, mount } from 'enzyme';
 
 // TEST SETUP
-const subject = <Item path="/" />;
+const subject = <Avatar />;
 const wrapper = mount(subject);
 const component = shallow(subject);
 
-describe('Component: Item', () => {
+describe('Component: Avatar', () => {
     it('should be defined', () => {
         /* tslint:disable */
         console.log(subject);

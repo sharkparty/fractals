@@ -2,16 +2,16 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 // COMPONENT
-import Item from './Item.component';
+import DropDown from './DropDown.component';
 // ENZYME
 import { shallow, mount } from 'enzyme';
 
 // TEST SETUP
-const subject = <Item path="/" />;
+const subject = <DropDown overlay={<div>1</div>} />;
 const wrapper = mount(subject);
 const component = shallow(subject);
 
-describe('Component: Item', () => {
+describe('Component: DropDown', () => {
     it('should be defined', () => {
         /* tslint:disable */
         console.log(subject);

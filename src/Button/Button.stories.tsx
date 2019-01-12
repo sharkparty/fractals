@@ -15,7 +15,7 @@ const StyledStory = styled.div`
 `;
 
 storiesOf('Components/Button', module)
-  // .addDecorator(checkA11y) // TODO: why tf doesn't this work?
+  // .addDecorator(checkA11y) // TODO: wtf doesn't this work?
   .add('Primary', () => (
       <StyledStory>
           <Button
