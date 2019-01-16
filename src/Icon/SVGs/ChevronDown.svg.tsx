@@ -4,28 +4,10 @@ import * as React from 'react';
 import { IconSVGProps } from '../Icon.component';
 
 /* tslint:disable max-line-length */
-export default ({ color = '#222222', height, width }: IconSVGProps) => (
-  <svg
-    height={height ? `${height}px` : '8px'}
-    width={width ? `${width}px` : '16px'}
-    viewBox="0 0 16 8"
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-  >
-    <defs>
-      <path
-        d="M15.706,11.689 L15.675,11.718 C15.284,12.094 14.644,12.094 14.252,11.718 L7.999,6.388 L1.747,11.718 C1.355,12.094 0.715,12.094 0.324,11.718 L0.293,11.689 C-0.098,11.314 -0.098,10.7 0.293,10.324 L7.288,4.282 C7.68,3.906 8.32,3.906 8.711,4.282 L15.706,10.324 C16.098,10.7 16.098,11.314 15.706,11.689"
-        id="path-1"
-      />
-    </defs>
-    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <g id="Group" transform="translate(0.000000, -4.000000)">
-        <mask id="mask-2" fill="white">
-          <use xlinkHref="#path-1" />
-        </mask>
-        <use id="Icons-/-Chevrons-/-Up" fill={color ? color : '#222'} transform="translate(7.999875, 8.000000) rotate(180.000000) translate(-7.999875, -8.000000) " xlinkHref="#path-1" />
-      </g>
+export default ({ color = '#222222', height = 10, width = 10 }: IconSVGProps) => (
+  <svg transform="rotate(90)" height={height} width={width} fill={color} preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40">
+    <g>
+      <path d="m23.3 20l-13.1-13.6c-0.3-0.3-0.3-0.9 0-1.2l2.4-2.4c0.3-0.3 0.9-0.4 1.2-0.1l16 16.7c0.1 0.1 0.2 0.4 0.2 0.6s-0.1 0.5-0.2 0.6l-16 16.7c-0.3 0.3-0.9 0.3-1.2 0l-2.4-2.5c-0.3-0.3-0.3-0.9 0-1.2z" />
     </g>
   </svg>
 );

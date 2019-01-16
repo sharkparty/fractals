@@ -4,19 +4,10 @@ import * as React from 'react';
 import { IconSVGProps } from '../Icon.component';
 
 /* tslint:disable max-line-length */
-export default ({ color = '#222222', height, width }: IconSVGProps) => (
-  <svg width={width ? `${width}px` : '16px'} height={height ? `${height}px` : '8px'} viewBox="0 0 16 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <path
-        d="M15.70625,7.689 L15.67525,7.718 C15.28425,8.094 14.64425,8.094 14.25225,7.718 L7.99925,2.388 L1.74725,7.718 C1.35525,8.094 0.71525,8.094 0.32425,7.718 L0.29325,7.689 C-0.09775,7.314 -0.09775,6.7 0.29325,6.324 L7.28825,0.282 C7.68025,-0.094 8.32025,-0.094 8.71125,0.282 L15.70625,6.324 C16.09825,6.7 16.09825,7.314 15.70625,7.689"
-        id="path-1"
-      />
-    </defs>
-    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <mask id="mask-2" fill="white">
-        <use xlinkHref="#path-1" />
-      </mask>
-      <use id="Icons-/-Chevrons-/-Up" fill={color} xlinkHref="#path-1" />
+export default ({ color = '#222222', height = 8, width = 16 }: IconSVGProps) => (
+  <svg transform="rotate(270)" height={height} width={width} fill={color} preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40">
+    <g>
+      <path d="m23.3 20l-13.1-13.6c-0.3-0.3-0.3-0.9 0-1.2l2.4-2.4c0.3-0.3 0.9-0.4 1.2-0.1l16 16.7c0.1 0.1 0.2 0.4 0.2 0.6s-0.1 0.5-0.2 0.6l-16 16.7c-0.3 0.3-0.9 0.3-1.2 0l-2.4-2.5c-0.3-0.3-0.3-0.9 0-1.2z" />
     </g>
   </svg>
 );

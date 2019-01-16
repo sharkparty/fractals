@@ -30,7 +30,14 @@ interface IconProps {
   height?: number;
 }
 
-export const StyledIcon = styled.i`
+export const StyledIcon = styled.div`
+  display: inline-flex;
+  max-width: 1.5rem;
+  justify-content: end;
+
+  > svg {
+    flex: 0 0 1.25rem;
+  }
 `;
 
 const DefaultProps: IconProps = {

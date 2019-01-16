@@ -14,5 +14,13 @@ export default {
       include: 'node_modules/**'
     })
   ],
-  external: [ 'react', 'styled-components' ]
+  external: [
+    'react',
+    'styled-components',
+    '@rebass/grid',
+    'classnames',
+    'lodash',
+    'rxjs',
+    'polished'
+  ]
 }

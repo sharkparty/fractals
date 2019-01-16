@@ -23,10 +23,10 @@ interface MenuProps {
 export const StyledMenu = styled.nav`
   margin: 0;
   padding: 0;
-  display: block;
+  display: flex;
   width: 100%;
   min-width: 250px;
-
+  /* TODO: for mobile */
   //overflow-y: hidden;
   //overflow-x: auto;
 
@@ -77,7 +77,6 @@ export const StyledMenu = styled.nav`
 
 const MenuSizes = {
   small: css`
-    height: ${fonts.baseFontSize * 2};
     > div > a,
     > a {
       font-size: ${fonts.navigation.menu.small.base.fontSize};

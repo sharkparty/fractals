@@ -85,11 +85,9 @@ export const StyledAutoComplete = styled.div`
 
   .auto-complete-prefix {
     z-index: 1;
-    flex: 1;
-    max-width: 1rem;
-    margin-left: 1rem;
-    margin-top: .25rem;
+    flex: 0 0 1.5rem;
   }
+  /* TODO: suffix */
 `;
 
 export class AutoComplete extends React.Component<AutoCompleteProps> {
