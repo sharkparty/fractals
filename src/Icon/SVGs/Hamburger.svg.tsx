@@ -5,7 +5,7 @@ import { IconSVGProps } from '../Icon.component';
 
 
 /* tslint:disable max-line-length */
-export default ({ color, height, width }: IconSVGProps) => (
+export default ({ color = '#222222', height, width }: IconSVGProps) => (
   <svg width={width ? `${width}px` : '26px'} height={height ? `${height}px` : '20px'} viewBox="0 0 26 20" version="1.1">
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <path

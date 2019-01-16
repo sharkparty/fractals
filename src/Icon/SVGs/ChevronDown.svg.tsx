@@ -4,7 +4,7 @@ import * as React from 'react';
 import { IconSVGProps } from '../Icon.component';
 
 /* tslint:disable max-line-length */
-export default ({ color, height, width }: IconSVGProps) => (
+export default ({ color = '#222222', height, width }: IconSVGProps) => (
   <svg
     height={height ? `${height}px` : '8px'}
     width={width ? `${width}px` : '16px'}

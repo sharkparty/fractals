@@ -33,7 +33,7 @@ storiesOf('Components/Menu', module)
           </Menu>
           <br/>
           <p>Small, Custom Color, & Custom Position</p>
-          <Menu size="small" bg="#4B2354" justify="flex-end">
+          <Menu size="small" justify="flex-end">
             <Item path="/">Rx Saver</Item>
             <Item path="/">Genie</Item>
             <Item path="/">Everyday</Item>

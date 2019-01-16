@@ -158,6 +158,4 @@ export class DropDown extends React.Component<DropDownProps> {
   }
 }
 
-// DropDown.defaultProps = DefaultProps;
-
 export default DropDown;

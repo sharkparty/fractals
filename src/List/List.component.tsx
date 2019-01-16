@@ -11,6 +11,7 @@ interface ListProps {
   className?: string;
   children?: any;
   title?: string;
+  hidden?: boolean;
 }
 
 export const StyledList = styled.div`
@@ -19,7 +20,7 @@ export const StyledList = styled.div`
     padding: ${sizes.padding.md};
     font-family: ${fonts.fontFamily};
     font-size: .75rem;
-    font-weight: 500;
+    font-weight: 600;
     color: ${colors.neutrals.ash.dark};
     line-height: .75rem;
   }

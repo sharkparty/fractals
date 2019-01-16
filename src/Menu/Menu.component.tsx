@@ -35,7 +35,8 @@ export const StyledMenu = styled.nav`
   font-family: ${fonts.fontFamily};
   border-radius: ${variables.borderRadius};
 
-  > div > a {
+  > div > a,
+  > a {
     display: inline-block;
     line-height: 1.125rem;
     color: ${({ color = colors.neutrals.white.base }: MenuProps) => color};
@@ -77,7 +78,8 @@ export const StyledMenu = styled.nav`
 const MenuSizes = {
   small: css`
     height: ${fonts.baseFontSize * 2};
-    > div > a {
+    > div > a,
+    > a {
       font-size: ${fonts.navigation.menu.small.base.fontSize};
       line-height: ${fonts.navigation.menu.small.base.fontSize};
       font-weight: ${fonts.navigation.menu.small.base.fontWeight};
@@ -85,7 +87,8 @@ const MenuSizes = {
     }
   `,
   large: css`
-    > div > a {
+    > div > a,
+    > a {
       border-radius: ${variables.borderRadius};
       font-weight: ${fonts.navigation.menu.large.base.fontWeight};
       padding: 1rem .75rem;
