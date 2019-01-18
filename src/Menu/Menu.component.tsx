@@ -35,7 +35,8 @@ export const StyledMenu = styled.nav`
   font-family: ${fonts.fontFamily};
   border-radius: ${variables.borderRadius};
 
-  > div > a,
+  /* TODO: use React.clone to append a run-time class here instead of using a * selector */
+  > * > a,
   > a {
     display: inline-block;
     line-height: 1.125rem;
@@ -68,16 +69,16 @@ export const StyledMenu = styled.nav`
     }
   }
 
-  /* Menu Sizes */
-  ${({ size = 'large' }: MenuProps) => MenuSizes[size]}
-
   /* Positioning */
   justify-content: ${({ justify = 'flex-start' }: MenuProps) => justify};
+
+  /* Menu Sizes */
+  ${({ size = 'large' }: MenuProps) => MenuSizes[size]};
 `;
 
 const MenuSizes = {
   small: css`
-    > div > a,
+    > * > a,
     > a {
       font-size: ${fonts.navigation.menu.small.base.fontSize};
       line-height: ${fonts.navigation.menu.small.base.fontSize};
@@ -86,7 +87,7 @@ const MenuSizes = {
     }
   `,
   large: css`
-    > div > a,
+    > * > a,
     > a {
       border-radius: ${variables.borderRadius};
       font-weight: ${fonts.navigation.menu.large.base.fontWeight};
@@ -102,6 +103,7 @@ const DefaultProps: MenuProps = {
 export const Menu = ({ className, children, ...props }: MenuProps = DefaultProps): React.ReactElement<any> => (
   <StyledMenu className={classNames(className)} {...props}>
     {/* TODO: React.cloneElement() to add props from parent to child? */}
+    {/* TODO: Need to solve the container issue */}
     {children}
   </StyledMenu>
 );

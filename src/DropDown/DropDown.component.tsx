@@ -59,7 +59,6 @@ export const StyledDropDown = styled.div`
   }
 `;
 
-
 export class DropDown extends React.Component<DropDownProps> {
   static defaultProps = {
     trigger: 'hover',

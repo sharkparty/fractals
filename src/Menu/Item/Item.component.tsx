@@ -17,6 +17,7 @@ export interface ItemProps {
   size?: 'small' | 'large';
   // TODO: as to allow element overrides
   as?: any;
+  type?: any;
 }
 
 export const StyledItem = styled.a`

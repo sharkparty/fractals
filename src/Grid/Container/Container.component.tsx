@@ -4,22 +4,84 @@ import * as React from 'react';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import { Box, BoxProps } from '@rebass/grid';
+import { fromEvent, Subscription } from 'rxjs';
 // import { debounceTime } from 'rxjs/operators';
+import { get } from 'lodash';
+
+export type BreakpointSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 
 interface ContainerProps extends BoxProps {
   children?: any;
   className?: string;
+  breakpoint?: BreakpointSize;
+
+  onBreakpoint?: (breakpoint: BreakpointSize) => void;
 }
 
 export const StyledContainer = styled(Box)`
   max-width: 1140px;
+  /* color: ${({ breakpoint }: ContainerProps) => { console.log(133, breakpoint); return 'black'; }}; */
 `;
 
-const DefaultProps: ContainerProps = {};
+interface ContainerState {
+  currentBreakpoint: BreakpointSize;
+}
 
-export const Container = ({ className, ...props }: ContainerProps = DefaultProps): React.ReactElement<any> =>
-  <StyledContainer mx="auto" className={classNames(className)} {...props} />;
+export class Container extends React.Component<ContainerProps> {
+  static defaultProps = {
+    breakpoint: 'small',
+  };
+  readonly state: ContainerState = {
+    currentBreakpoint: 'small',
+  };
+  private windowResize$: Subscription;
 
-Container.defaultProps = DefaultProps;
+  componentDidMount(): void {
+    this.windowResize$ = fromEvent(window, 'resize')
+      // .pipe(debounceTime(150))
+      .subscribe(() => this.assignBreakpoint());
+    this.assignBreakpoint();
+  }
 
+  componentWillUnmount(): void {
+    this.windowResize$.unsubscribe();
+  }
+
+  assignBreakpoint(): void {
+    const innerWidth: number = get(window || {}, 'innerWidth', 480);
+    let currentBreakpoint: BreakpointSize = 'small';
+    if (innerWidth <= 480) {
+      currentBreakpoint = 'xsmall';
+    } else if (innerWidth <= 576) {
+      currentBreakpoint = 'small';
+    } else if (innerWidth <= 768) {
+      currentBreakpoint = 'medium';
+    } else if (innerWidth <= 992) {
+      currentBreakpoint = 'large';
+    } else if (innerWidth <= 1200) {
+      currentBreakpoint = 'xlarge';
+    } else {
+      currentBreakpoint = 'xxlarge';
+    }
+
+    if (this.state.currentBreakpoint !== currentBreakpoint) {
+      this.setState({ ...this.state, currentBreakpoint });
+      if (this.props.onBreakpoint) {
+        this.props.onBreakpoint(currentBreakpoint);
+      }
+    }
+  }
+
+  render(): React.ReactElement<Container>  {
+    const { className, ...props } = this.props;
+    return (
+      <StyledContainer
+        mx="auto"
+        className={classNames(className)}
+        {...props}
+        breakpoint={this.state.currentBreakpoint}
+      />
+    );
+  }
+}
 export default Container;
