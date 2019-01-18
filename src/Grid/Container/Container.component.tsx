@@ -15,7 +15,7 @@ interface ContainerProps extends BoxProps {
   className?: string;
   breakpoint?: BreakpointSize;
 
-  onBreakpoint?: (breakpoint: BreakpointSize) => void;
+  whenBreakpoint?: (breakpoint: BreakpointSize) => void;
 }
 
 export const StyledContainer = styled(Box)`
@@ -65,8 +65,8 @@ export class Container extends React.Component<ContainerProps> {
 
     if (this.state.currentBreakpoint !== currentBreakpoint) {
       this.setState({ ...this.state, currentBreakpoint });
-      if (this.props.onBreakpoint) {
-        this.props.onBreakpoint(currentBreakpoint);
+      if (this.props.whenBreakpoint) {
+        this.props.whenBreakpoint(currentBreakpoint);
       }
     }
   }

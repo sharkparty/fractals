@@ -97,11 +97,9 @@ export class Header extends React.Component<HeaderProps> {
     );
   }
   private renderDesktopMenu(): React.ReactElement<any> {
-
     const { primary } = this.props;
-
     return (
-      <Container onBreakpoint={(breakpoint: string) => { this.setState({ ...this.state, breakpoint }); }}>
+      <Container whenBreakpoint={(breakpoint: string) => this.updateBreakpoint(breakpoint)}>
         <Flex alignItems="center" py={4}>
           <Box width={1 / 6}>
             <Flex justifyContent="center">
@@ -137,35 +135,42 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   private renderMobileMenu(): React.ReactElement<any> {
-
     return (
-      <Container onBreakpoint={(breakpoint: string) => { this.setState({ ...this.state, breakpoint }); }}>
+      <Container whenBreakpoint={(breakpoint: string) => this.updateBreakpoint(breakpoint)}>
         <Flex alignItems="center" py={2}>
           <Box width={1 / 6}>
             <Flex justifyContent="center">
               <SmallLogo />
             </Flex>
           </Box>
-          <Box width={3 / 6}>
+          <Box flex={1} width={3 / 6}>
             <AutoComplete
               prefix={<Icon type="search"/>}
               placeholder="Stores, brands, categories, etc…"
               dataSource={[1, 2, 3, 4, 5]}
             />
           </Box>
-          <Box width={1 / 6}>
-            <Flex justifyContent="center">
-              <Avatar />
-            </Flex>
-          </Box>
-          <Box width={1 / 6}>
-            <Flex justifyContent="center">
-              <Icon type="hamburger" color="white" />
+          <Box flex="0 0 120px" width={2 / 6}>
+            <Flex justifyContent="flex-end" alignItems="center">
+              <Box width={1 / 2}>
+                <Flex justifyContent="center">
+                  <Avatar />
+                </Flex>
+              </Box>
+              <Box width={1 / 2}>
+                <Flex justifyContent="center">
+                  <Icon type="hamburger" color="white" />
+                </Flex>
+              </Box>
             </Flex>
           </Box>
         </Flex>
       </Container>
     );
+  }
+
+  private updateBreakpoint(breakpoint: string): void {
+    this.setState({ ...this.state, breakpoint });
   }
 }
 
