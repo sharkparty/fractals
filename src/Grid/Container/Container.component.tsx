@@ -8,7 +8,7 @@ import { fromEvent, Subscription } from 'rxjs';
 // import { debounceTime } from 'rxjs/operators';
 import { get } from 'lodash';
 
-export type BreakpointSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
+type BreakpointSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 
 interface ContainerProps extends BoxProps {
   children?: any;

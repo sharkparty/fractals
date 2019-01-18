@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { colors } from '../../theme';
 // COMPONENTS
 import { Menu, Item } from '../../Menu';
-import { Container, Flex, Box, BreakpointSize } from '../../Grid';
+import { Container, Flex, Box } from '../../Grid';
 import { DropDown } from '../../DropDown';
 import { Icon } from '../../Icon';
 import { AutoComplete } from '../../AutoComplete';
@@ -70,7 +70,7 @@ const SmallLogo = () => (
 /* tslint:enable */
 
 interface HeaderState {
-  breakpoint: BreakpointSize;
+  breakpoint: string;
 }
 
 export class Header extends React.Component<HeaderProps> {
@@ -106,7 +106,7 @@ export class Header extends React.Component<HeaderProps> {
     const { primary } = this.props;
 
     return (
-      <Container onBreakpoint={(breakpoint: BreakpointSize) => { this.setState({ ...this.state, breakpoint }); }}>
+      <Container onBreakpoint={(breakpoint: string) => { this.setState({ ...this.state, breakpoint }); }}>
         <Flex alignItems="center" py={4}>
           <Box width={1 / 6}>
             <LargeLogo />
@@ -142,7 +142,7 @@ export class Header extends React.Component<HeaderProps> {
   private renderMobileMenu(): React.ReactElement<any> {
 
     return (
-      <Container onBreakpoint={(breakpoint: BreakpointSize) => { this.setState({ ...this.state, breakpoint }); }}>
+      <Container onBreakpoint={(breakpoint: string) => { this.setState({ ...this.state, breakpoint }); }}>
         <Flex alignItems="center" py={2}>
           <Box width={1 / 6} pl={3}>
             <SmallLogo />
