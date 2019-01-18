@@ -38,7 +38,6 @@ export const StyledAutoComplete = styled.div`
   display: flex;
   background: ${colors.neutrals.white.base};
   align-items: center;
-  overflow-x: hidden;
 
   &:hover {
     border: solid thin ${colors.neutrals.ash.base};
@@ -57,6 +56,7 @@ export const StyledAutoComplete = styled.div`
     border-radius: .25rem;
     background-color: transparent;
     line-height: 1rem;
+    overflow: hidden;
 
     color: ${colors.neutrals.charcoal.light};
 
