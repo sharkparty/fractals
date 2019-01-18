@@ -4,14 +4,15 @@ import * as React from 'react';
 // VENDOR
 import styled from 'styled-components';
 // STYLES
-import { sizes, colors } from '../../theme';
+import { sizes, colors, fonts } from '../../theme';
 
 export const StyledFooterElement = styled.footer`
-  padding: ${sizes.padding.lg} ${sizes.padding.xl};
+  font-family: ${fonts.fontFamily};
+  text-align: center;
+  padding: ${sizes.padding.lg};
   margin: 0;
-  min-height: 14rem;
-  border-bottom: solid 16px ${colors.neutrals.silver.base};
-  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.11);
+  background-color: ${colors.neutrals.silver.base};
+  color: ${colors.neutrals.ash.base};
 `;
 
 interface FooterProps {
@@ -21,7 +22,7 @@ interface FooterProps {
 
 export const Footer = ({ children }: FooterProps): React.ReactElement<any> => (
   <StyledFooterElement>
-    <p>I'm a footer. Neat.</p>
-    {children}
+    <p>RMN Footer Stub</p>
+    {/*{children}*/}
   </StyledFooterElement>
 );
