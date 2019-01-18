@@ -20,7 +20,6 @@ interface ContainerProps extends BoxProps {
 
 export const StyledContainer = styled(Box)`
   max-width: 1140px;
-  /* color: ${({ breakpoint }: ContainerProps) => { console.log(133, breakpoint); return 'black'; }}; */
 `;
 
 interface ContainerState {
@@ -79,7 +78,6 @@ export class Container extends React.Component<ContainerProps> {
         mx="auto"
         className={classNames(className)}
         {...props}
-        breakpoint={this.state.currentBreakpoint}
       />
     );
   }

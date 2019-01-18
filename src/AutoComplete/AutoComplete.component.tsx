@@ -38,6 +38,7 @@ export const StyledAutoComplete = styled.div`
   display: flex;
   background: ${colors.neutrals.white.base};
   align-items: center;
+  overflow-x: hidden;
 
   &:hover {
     border: solid thin ${colors.neutrals.ash.base};

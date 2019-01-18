@@ -26,11 +26,6 @@ interface HeaderProps {
   secondary?: any;
 }
 
-// const responsiveView: React.Component = (breakpoint: string) => (
-//   {breakpoint === 'xsmall' || breakpoint === 'small'
-//     ?}
-// );
-
 /* tslint:disable max-line-length */
 const LargeLogo = () => (
   <svg
@@ -84,7 +79,7 @@ export class Header extends React.Component<HeaderProps> {
       ...props
     } = this.props;
     const { breakpoint } = this.state;
-    const isDesktop = breakpoint !== 'xsmall' && breakpoint !== 'small';
+    const isDesktop = breakpoint !== 'xsmall' && breakpoint !== 'small' && breakpoint !== 'medium';
 
     return (
       <StyledHeaderElement className={classNames(className)} {...props}>
@@ -109,7 +104,9 @@ export class Header extends React.Component<HeaderProps> {
       <Container onBreakpoint={(breakpoint: string) => { this.setState({ ...this.state, breakpoint }); }}>
         <Flex alignItems="center" py={4}>
           <Box width={1 / 6}>
-            <LargeLogo />
+            <Flex justifyContent="center">
+              <LargeLogo />
+            </Flex>
           </Box>
           <Box width={5 / 12} px={2}>
             <AutoComplete
@@ -144,8 +141,10 @@ export class Header extends React.Component<HeaderProps> {
     return (
       <Container onBreakpoint={(breakpoint: string) => { this.setState({ ...this.state, breakpoint }); }}>
         <Flex alignItems="center" py={2}>
-          <Box width={1 / 6} pl={3}>
-            <SmallLogo />
+          <Box width={1 / 6}>
+            <Flex justifyContent="center">
+              <SmallLogo />
+            </Flex>
           </Box>
           <Box width={3 / 6}>
             <AutoComplete
@@ -154,11 +153,15 @@ export class Header extends React.Component<HeaderProps> {
               dataSource={[1, 2, 3, 4, 5]}
             />
           </Box>
-          <Box width={1 / 6} pl={3}>
-            <Avatar />
+          <Box width={1 / 6}>
+            <Flex justifyContent="center">
+              <Avatar />
+            </Flex>
           </Box>
-          <Box width={1 / 6} pl={3}>
-            <Icon type="hamburger" color="white" />
+          <Box width={1 / 6}>
+            <Flex justifyContent="center">
+              <Icon type="hamburger" color="white" />
+            </Flex>
           </Box>
         </Flex>
       </Container>
