@@ -8,12 +8,13 @@ import {
   Hamburger,
   ChevronDown,
   ChevronUp,
+  ChevronRight,
   Cart,
   Search
 } from './SVGs';
 // THEME
 
-type IconTypes = 'hamburger' | 'chevron-down' | 'chevron-up' | 'cart' | 'search';
+type IconTypes = 'hamburger' | 'chevron-down' | 'chevron-up' | 'chevron-right' | 'cart' | 'search';
 
 export interface IconSVGProps {
   width?: number;
@@ -49,6 +50,7 @@ const Icons = {
   'hamburger': Hamburger,
   'chevron-down': ChevronDown,
   'chevron-up': ChevronUp,
+  'chevron-right': ChevronRight,
   'cart': Cart,
   'search': Search,
 };
