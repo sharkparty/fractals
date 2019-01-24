@@ -3,19 +3,88 @@ import * as React from 'react';
 // COMPONENTS
 import { MobileCTA } from './MobileCTA/MobileCTA.component';
 import { Container, Flex, Box } from '../../Grid';
+import { FooterSection } from './FooterSection/FooterSection.component';
 // VENDOR
 import styled from 'styled-components';
 // STYLES
 import { sizes, colors, fonts } from '../../theme';
 
+const { Fragment } = React;
+
 export const StyledFooterElement = styled.footer`
   font-family: ${fonts.fontFamily};
-  padding: ${sizes.padding.lg};
+  font-size: .75rem;
   margin: 0;
   background-color: ${colors.neutrals.white.base};
   border-bottom: solid 1rem ${colors.main.grapePurchase.base};
   color: ${colors.neutrals.ash.base};
   box-shadow: 0 0 .5rem 0 rgba(0, 0, 0, 0.1);
+
+  .footer-navigation-sections {
+    display: flex;
+    justify-content: space-between;
+
+    > section {
+      flex: 0 0 110px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: ${colors.accent.savvyCyan.dark};
+    font-weight: 500;
+  }
+
+  .legal-links {
+    margin: 0;
+    padding: 2rem 0 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+
+    li {
+      flex: 1 1 auto;
+    }
+  }
+
+  .desktop {
+    padding: ${sizes.padding.lg};
+  }
+
+  .mobile {
+    padding: ${sizes.padding.md};
+    .footer-navigation-sections {
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+
+      > section {
+        flex: 1 1 120px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .footer-logo,
+    .mobile-cta {
+      display: flex;
+      margin: 0 auto;
+    }
+
+    hr {
+      border: none;
+      border-bottom: solid 1px ${colors.neutrals.ash.light};
+      margin-bottom: 1rem;
+    }
+    .legal-links {
+      padding: 1.5rem 5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+
+      li {
+        margin-right: 1rem;
+      }
+    }
+  }
 `;
 
 interface FooterProps {
@@ -29,7 +98,7 @@ interface FooterState {
 
 /* tslint:disable max-line-length */
 const FooterLogo = () => (
-  <svg width="176px" height="51px" viewBox="0 0 176 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+  <svg className="footer-logo" width="176px" height="51px" viewBox="0 0 176 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="Stacked-Group">
         <g id="Purple-Logo">
@@ -54,11 +123,12 @@ export class Footer extends React.Component<FooterProps> {
   };
 
   render() {
-    // const {
-    //   children,
-    // } = this.props;
     const { currentBreakpoint } = this.state;
-    const isDesktop = currentBreakpoint !== 'xsmall' && currentBreakpoint !== 'small' && currentBreakpoint !== 'medium';
+    const isDesktop =
+      currentBreakpoint !== 'xsmall' &&
+      currentBreakpoint !== 'small' &&
+      currentBreakpoint !== 'large' &&
+      currentBreakpoint !== 'medium';
 
     return (
       <StyledFooterElement>
@@ -74,21 +144,21 @@ export class Footer extends React.Component<FooterProps> {
   private renderDesktopFooter(): React.ReactElement<any> {
     return (
       <Container whenBreakpoint={(breakpoint: string) => this.updateBreakpoint(breakpoint)}>
-        <Flex>
-          <Box width={2 / 8}>
+        <Flex className="desktop">
+          <Box flex="0 1 220px" width={2 / 8}>
             <FooterLogo />
           </Box>
-          <Box width={4 / 8}>
-            <p>nav</p>
+          <Box className="footer-navigation-sections" width={4 / 8}>
+            {this.renderDefaultLinks()}
           </Box>
           <Box width={2 / 8}>
             <MobileCTA />
           </Box>
         </Flex>
         <Flex>
-          <Box width={2 / 8} />
+          <Box flex="0 1 220px" width={2 / 8} />
           <Box width={6 / 8}>
-            Copyright
+            {this.renderLegalLinks()}
           </Box>
         </Flex>
       </Container>
@@ -98,24 +168,91 @@ export class Footer extends React.Component<FooterProps> {
   private renderMobileFooter(): React.ReactElement<any> {
     return (
       <Container whenBreakpoint={(breakpoint: string) => this.updateBreakpoint(breakpoint)}>
-        <Flex>
-          <Box width={2 / 8}>
+        <Flex className="mobile">
+          <Box width={1}>
+            <MobileCTA className="mobile-cta" />
+            <hr />
+            <div className="footer-navigation-sections">
+              {this.renderDefaultLinks()}
+            </div>
+            <hr />
             <FooterLogo />
-          </Box>
-          <Box width={4 / 8}>
-            <p>mobile!</p>
-          </Box>
-          <Box width={2 / 8}>
-            <MobileCTA />
-          </Box>
-        </Flex>
-        <Flex>
-          <Box width={2 / 8} />
-          <Box width={6 / 8}>
-            Copyright
+            {this.renderLegalLinks()}
           </Box>
         </Flex>
       </Container>
+    );
+  }
+
+  private renderDefaultLinks(): React.ReactElement<any> {
+    const items = [
+      {
+        title: 'Find Deals',
+        key: 1,
+        children: [
+          { label: 'Seasonal/Ideas', href: '#', key: 1 },
+          { label: 'Browse Categories', href: '#', key: 2 },
+          { label: 'Exclusive Deals', href: '#', key: 3 },
+          { label: 'Deal Squad', href: '#', key: 4 },
+        ],
+      },
+      {
+        title: 'Connect',
+        key: 2,
+        children: [
+          { label: 'Help', href: '#', key: 1 },
+          { label: 'Facebook', href: '#', key: 2 },
+          { label: 'Twitter', href: '#', key: 3 },
+          { label: 'Instagram', href: '#', key: 4 },
+        ],
+      },
+      {
+        title: 'Account',
+        key: 3,
+        children: [
+          { label: 'My Account', href: '#', key: 1 },
+          { label: 'Community', href: '#', key: 2 },
+          { label: 'Submit a Coupon', href: '#', key: 3 },
+        ],
+      },
+      {
+        title: 'Connect',
+        key: 4,
+        children: [
+          { label: 'About', href: '#', key: 1 },
+          { label: 'Blog', href: '#', key: 2 },
+          { label: 'Careers', href: '#', key: 3 },
+          { label: 'Contact', href: '#', key: 4 },
+        ],
+      },
+    ];
+    return (
+      <Fragment>
+        {items.map(({ title, key: sectionKey, children }: any) => (
+          <FooterSection key={sectionKey} title={title}>
+            <ul>
+              {children.map(({ key, href, label }: any) => (
+                <li key={key}>
+                  <a href={href}>{label}</a>
+                </li>
+              ))}
+            </ul>
+          </FooterSection>
+        ))}
+      </Fragment>
+    );
+  }
+
+  private renderLegalLinks(): React.ReactElement<any> {
+    const currentYear = new Date().getFullYear();
+    return (
+      <ul className="legal-links">
+        <li><a>Terms of Use</a></li>
+        <li><a>Privacy Policy</a></li>
+        <li><a>Sitemap</a></li>
+        <li><a>Ad Choices</a></li>
+        <li>&copy; {currentYear} RetailMeNot, Inc.</li>
+      </ul>
     );
   }
 }

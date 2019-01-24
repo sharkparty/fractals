@@ -4,12 +4,14 @@ import * as React from 'react';
 import { Icon } from '../../../Icon';
 // VENDOR
 import styled from 'styled-components';
+import classNames from 'classnames';
 // STYLES
 import { fonts, colors } from '../../../theme';
 
 export const StyledMobileCTAElement = styled.a`
   display: inline-flex;
   font-family: ${fonts.fontFamily};
+  font-size: 0.875rem;
   justify-content: center;
   align-content: center;
   color: ${colors.neutrals.charcoal.base};
@@ -96,8 +98,8 @@ const MobileCTAImage = () => (
 );
 /* tslint:enable max-line-length */
 
-export const MobileCTA = ({ href }: MobileCTAProps): React.ReactElement<any> => (
-  <StyledMobileCTAElement href={href} target="_blank" rel="noreferrer nofollow">
+export const MobileCTA = ({ href, className }: MobileCTAProps): React.ReactElement<any> => (
+  <StyledMobileCTAElement className={classNames(className)} href={href} target="_blank" rel="noreferrer nofollow">
     <MobileCTAImage />
     <div>
       <p>Get Savings on the go!</p>

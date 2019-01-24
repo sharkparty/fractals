@@ -4,14 +4,14 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 // COMPONENT
-import { MobileCTA } from './MobileCTA.component';
+import { FooterSection } from './FooterSection.component';
 
 const StyledStory = styled.div`
   padding: 10rem;
 `;
 
-storiesOf('Components/Footer/MobileCTA', module).add('default', () => (
+storiesOf('Components/Footer/FooterSection', module).add('default', () => (
     <StyledStory>
-        <MobileCTA />
+        <FooterSection />
     </StyledStory>
 ));
