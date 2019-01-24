@@ -4,14 +4,14 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 // COMPONENT
-import { Footer } from './Footer.component';
+import { FooterSection } from './FooterSection.component';
 
 const StyledStory = styled.div`
-  padding: 2rem 0;
+  padding: 10rem;
 `;
 
-storiesOf('Components/Footer', module).add('default', () => (
+storiesOf('Components/Footer/FooterSection', module).add('default', () => (
     <StyledStory>
-        <Footer>Story</Footer>
+        <FooterSection />
     </StyledStory>
 ));

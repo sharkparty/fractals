@@ -24,6 +24,8 @@ interface HeaderProps {
   children?: any;
   primary?: any;
   secondary?: any;
+  // TODO: do we really want this?
+  disableSearch?: boolean;
 }
 
 /* tslint:disable max-line-length */
@@ -76,6 +78,7 @@ export class Header extends React.Component<HeaderProps> {
   public render(): React.ReactElement<Header> {
     const {
       className,
+      disableSearch,
       ...props
     } = this.props;
     const { breakpoint } = this.state;
@@ -92,11 +95,11 @@ export class Header extends React.Component<HeaderProps> {
             <Item path="/">Blog</Item>
           </Menu>
         }
-        {isDesktop ? this.renderDesktopMenu() : this.renderMobileMenu()}
+        {isDesktop ? this.renderDesktopMenu(disableSearch) : this.renderMobileMenu(disableSearch)}
       </StyledHeaderElement>
     );
   }
-  private renderDesktopMenu(): React.ReactElement<any> {
+  private renderDesktopMenu(disableSearch?: boolean): React.ReactElement<any> {
     const { primary } = this.props;
     return (
       <Container whenBreakpoint={(breakpoint: string) => this.updateBreakpoint(breakpoint)}>
@@ -107,12 +110,12 @@ export class Header extends React.Component<HeaderProps> {
             </Flex>
           </Box>
           <Box width={5 / 12} px={2}>
-            <AutoComplete
+            {!disableSearch && <AutoComplete
               size="large"
               prefix={<Icon type="search"/>}
               placeholder="Stores, brands, categories, etc…"
               dataSource={[1, 2, 3, 4, 5]}
-            />
+            />}
           </Box>
           <Box width={5 / 12}>
             {primary
@@ -134,7 +137,7 @@ export class Header extends React.Component<HeaderProps> {
     );
   }
 
-  private renderMobileMenu(): React.ReactElement<any> {
+  private renderMobileMenu(disableSearch?: boolean): React.ReactElement<any> {
     return (
       <Container whenBreakpoint={(breakpoint: string) => this.updateBreakpoint(breakpoint)}>
         <Flex alignItems="center" py={2}>
@@ -144,11 +147,11 @@ export class Header extends React.Component<HeaderProps> {
             </Flex>
           </Box>
           <Box flex={1} width={3 / 6}>
-            <AutoComplete
+            {!disableSearch && <AutoComplete
               prefix={<Icon type="search"/>}
               placeholder="Stores, brands, categories, etc…"
               dataSource={[1, 2, 3, 4, 5]}
-            />
+            />}
           </Box>
           <Box flex="0 0 120px" width={2 / 6}>
             <Flex justifyContent="flex-end" alignItems="center">

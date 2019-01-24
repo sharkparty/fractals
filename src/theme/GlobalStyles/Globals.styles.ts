@@ -20,6 +20,11 @@ const typography = css`
     line-height: ${fonts.paragraph.base.lineHeight};
     font-weight: ${fonts.paragraph.base.fontWeight};
   }
+
+  a {
+    text-decoration: none;
+    color: ${colors.accent.savvyCyan.dark};
+  }
 `;
 
 export const GlobalCSS = createGlobalStyle`
