@@ -16,12 +16,11 @@ export const StyledFooterSectionElement = styled.section`
 
   h4 {
     ${reset};
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    color: ${colors.neutrals.ash.dark};
-    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: ${colors.neutrals.charcoal.light};
   }
 
   ul {
@@ -41,7 +40,7 @@ export const StyledFooterSectionElement = styled.section`
 
   a {
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 `;
 
