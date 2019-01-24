@@ -1,6 +1,6 @@
 {
   "name": "@jaws/fractals",
-  "version": "0.0.10-alpha.10",
+  "version": "0.0.10-alpha.11",
   "description": "A React UI Library by RetailMeNot",
   "main": "commonjs/index.js",
   "module": "esm/index.es.js",
