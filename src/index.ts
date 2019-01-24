@@ -5,7 +5,6 @@ export { Badge } from './Badge';
 export { DropDown } from './DropDown';
 export { Container, Flex, Box } from './Grid';
 export { Icon } from './Icon';
-export { Input } from './Input';
 export { Page, Footer, Header } from './Layout';
 export { List, Item as ListItem } from './List';
 export { Menu, Item as MenuItem } from './Menu';
