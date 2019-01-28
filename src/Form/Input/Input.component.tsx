@@ -33,24 +33,28 @@ interface InputState {
 const baseFontWeight = 500;
 
 export const StyledInput = styled.div `
-  width: calc(100% - 2rem);
-  height: 3rem;
-  position: relative;
   display: flex;
-  flex-flow: row wrap;
-  border-radius: ${variables.borderRadius};
-  border: solid 1px ${colors.neutrals.ash.light};
+  flex-direction: column;
   font-family: ${fonts.fontFamily};
-  opacity: ${({disabled}: InputProps) => disabled && '0.5'};
 
-  &:active,
-  &:focus {
-    outline: none;
-    border-color: ${({ disabled }: InputProps) => disabled ? colors.neutrals.ash.light : colors.neutrals.ash.dark};
-  }
+  .input {
+    width: calc(100% - 2rem);
+    height: 3rem;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: ${variables.borderRadius};
+    border: solid 1px ${colors.neutrals.ash.light};
+    opacity: ${({disabled}: InputProps) => disabled && '0.5'};
 
-  &.error-border {
-    border-color: ${colors.alert.error.base};
+    &:active,
+    &:focus {
+      border-color: ${({ disabled }: InputProps) => disabled ? colors.neutrals.ash.light : colors.neutrals.ash.dark};
+    }
+
+    &.error-border {
+      border-color: ${colors.alert.error.base};
+    }
   }
 
   .field-input {
@@ -67,10 +71,6 @@ export const StyledInput = styled.div `
     &:active,
     &:focus {
       outline: none;
-    }
-
-    &.error-border {
-      border-color: ${colors.alert.error.base};
     }
   }
 
@@ -89,10 +89,10 @@ export const StyledInput = styled.div `
     font-size: calc(1rem - 2px);
     font-weight: ${baseFontWeight};
     line-height: 1.29;
-    /* TODO: kam figure out how to standardize transitions within elements! */
+    /* TODO: kam figure outow to standardize transitions within elements! */
     transform-origin: 0% 50%;
     transition: all 200ms ease-in-out;
-    color: ${colors.neutrals.charcoal.light};
+    color: ${colors.neutrals.ash.dark};
     cursor: text;
   }
 
@@ -109,9 +109,23 @@ export const StyledInput = styled.div `
     cursor: default;
   }
 
+  .field-input:focus + .field-label + .placeholder {
+    display: block;
+    position: absolute;
+    margin-left: ${({ prefix }: InputProps) => !prefix ? '.75rem' : 'calc(3rem - 3px)'};
+    margin-top: 1.5rem;
+    top: 0;
+    font-size: calc(1rem - 2px);
+    font-weight: ${baseFontWeight};
+    color: ${colors.neutrals.ash.dark};
+  }
+
+  .placeholder,
+  .field-input:not([value='']) + .field-label + .placeholder {
+    display: none;
+  }
+
   .error {
-    // TODO: kam this is a bad idea... will reorganize everything
-    flex: 0 0 100%;
     margin-top: .5rem;
     font-size: .75rem;
     font-weight: ${baseFontWeight};
@@ -134,6 +148,7 @@ export class Input extends React.Component<InputProps> {
       label,
       inputType,
       prefix,
+      placeholder,
       disabled,
     } = this.props;
 
@@ -145,24 +160,25 @@ export class Input extends React.Component<InputProps> {
 
     return (
       <StyledInput prefix={prefix} disabled={disabled}>
-        {prefix && React.cloneElement(prefix, {
-          height: 16,
-          width: 16,
-          color: colors.neutrals.ash.dark,
-          className: 'input-prefix',
-        })}
-        <input
-          type={inputType}
-          disabled={disabled}
-          onFocus={() => this.setState({ ...this.state, isFocused: true })}
-          onBlur={() => this.setState({ ...this.state, isFocused: false })}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => this.handleChange(event)}
-          value={value}
-          className={classNames('field-input', { ['error-border']: errorMessage})}
-        />
-        <label className="field-label">
-          {label}
-        </label>
+        <div className={classNames('input', {['error-border']: !isFocused && errorMessage})}>
+          {prefix && React.cloneElement(prefix, {
+            height: 16,
+            width: 16,
+            color: colors.neutrals.ash.dark,
+            className: 'input-prefix',
+          })}
+          <input
+            type={inputType}
+            disabled={disabled}
+            onFocus={() => this.setState({...this.state, isFocused: true})}
+            onBlur={() => this.setState({...this.state, isFocused: false})}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => this.handleChange(event)}
+            value={value}
+            className="field-input"
+          />
+          <label className="field-label">{label}</label>
+          {placeholder && <div className="placeholder">{placeholder}</div>}
+        </div>
         {!isFocused && errorMessage && <div className="error">{errorMessage}</div>}
       </StyledInput>
     );
